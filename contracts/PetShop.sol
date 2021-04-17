@@ -13,6 +13,7 @@ contract petshop is ERC721{
         string name;
         string location;
         uint256 age;
+        string image;
         uint256 price;
         address owner;
     }
@@ -20,9 +21,9 @@ contract petshop is ERC721{
     
     petInfo[] petlist; 
     
-    address Owner = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
+    address Owner = 0xed3a9FCe08f947BA39096BCad529741e0260A12c;
 
-    function addPet(string memory _petName, string memory _location, uint256 _age, uint256 _price)public returns(bool _status){
+    function addPet(string memory _petName, string memory _location, uint256 _age,string memory _image, uint256 _price)public returns(bool _status){
         
          require(
           Owner == msg.sender,
@@ -38,7 +39,8 @@ contract petshop is ERC721{
             location :_location,
             age :_age,
             price : _price,
-            owner: Owner
+            owner: Owner,
+            image: _image
         });
         
         petlist.push(tempinfo);
